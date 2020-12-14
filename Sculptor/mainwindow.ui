@@ -37,7 +37,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -437,7 +437,7 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Arquivo</string>
     </property>
     <addaction name="actionNew_Canvas"/>
     <addaction name="actionExport_off_File"/>
@@ -454,17 +454,17 @@
   </widget>
   <action name="actionQuit">
    <property name="text">
-    <string>Quit</string>
+    <string>Sair</string>
    </property>
   </action>
   <action name="actionNew_Canvas">
    <property name="text">
-    <string>New Canvas</string>
+    <string>Novo Canvas</string>
    </property>
   </action>
   <action name="actionExport_off_File">
    <property name="text">
-    <string>Export .off File</string>
+    <string>Exportar Arquivo .off</string>
    </property>
   </action>
   <action name="actionPutVoxel">
