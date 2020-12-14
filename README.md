@@ -5,14 +5,14 @@ Ele possui uma matriz central, conhecida como Canvas. Nela você pode desenhar v
 
 Ele possui 8 funções Principais:
 
--Put Voxel: Desenha um cubo de tamanho 1x1 no Canvas.
--Cut Voxel: Apaga um cubo de tamanho 1x1 no Canvas.
--Put Box: Desenha uma Caixa de tamanho definido pelas barras de "Tamanho da Caixa".
--Cut Box: Apaga uma Caixa de tamanho definido pelas barras de "Tamanho da Caixa".
--Put Sphere: Desenha uma Esfera de tamanho definido pelas barras de "Raio da Esfera".
--Cut Sphere: Apaga uma Esfera de tamanho definido pelas barras de "Raio da Esfera".
--Put Ellipsoid: Desenha uma Elipse de tamanho definido pelas barras de "Raio da Elipse"
--Cut Ellipsoid: Apaga uma Elipse de tamanho definido pelas barras de "Raio da Elipse"
+- Put Voxel: Desenha um cubo de tamanho 1x1 no Canvas.
+- Cut Voxel: Apaga um cubo de tamanho 1x1 no Canvas.
+- Put Box: Desenha uma Caixa de tamanho definido pelas barras de "Tamanho da Caixa".
+- Cut Box: Apaga uma Caixa de tamanho definido pelas barras de "Tamanho da Caixa".
+- Put Sphere: Desenha uma Esfera de tamanho definido pelas barras de "Raio da Esfera".
+- Cut Sphere: Apaga uma Esfera de tamanho definido pelas barras de "Raio da Esfera".
+- Put Ellipsoid: Desenha uma Elipse de tamanho definido pelas barras de "Raio da Elipse"
+- Cut Ellipsoid: Apaga uma Elipse de tamanho definido pelas barras de "Raio da Elipse"
 
 Essas funções podem ser acessadas pela barra de ferramentas acima da matriz central, disponível necessáriamente nessa ordem.
 
