@@ -1,0 +1,177 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <cstdlib>
+#include "sculptor.h"
+#include "painter.h"
+#include "QMessageBox"
+#include "QProcess"
+
+MainWindow::MainWindow(QWidget *parent):
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    ui->SliderRed->setMinimum(10);
+    ui->SliderRed->setMaximum(255);
+    ui->SliderGreen->setMinimum(10);
+    ui->SliderGreen->setMaximum(255);
+    ui->SliderBlue->setMinimum(10);
+    ui->SliderBlue->setMaximum(255);
+    ui->SliderAlpha->setMaximum(255);
+    //ui->SliderX->setMaximum(ui->widget->nx-1);
+    //ui->SliderY->setMaximum(ui->widget->ny-1);
+    //ui->SliderZ->setMaximum(ui->widget->nz-1);
+    //ui->SliderRadius->setMaximum(ui->widget->nx/2 -1);
+    //ui->SliderRX->setMaximum(ui->widget->nx/2 -1);
+    //ui->SliderRY->setMaximum(ui->widget->ny/2 -1);
+    //ui->SliderRZ->setMaximum(ui->widget->nz/2 -1);
+    //ui->SliderDimensao->setMaximum(ui->widget->dnz -1);
+
+    connect(ui->SliderDimensao,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeDimensao(int)));
+    connect(ui->SliderRed,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeRed(int)));
+    connect(ui->SliderGreen,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeGreen(int)));
+    connect(ui->SliderBlue,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeBlue(int)));
+    connect(ui->SliderAlpha,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeAlpha(int)));
+    connect(ui->SliderX,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeX(int)));
+    connect(ui->SliderY,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeY(int)));
+    connect(ui->SliderZ,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeZ(int)));
+    connect(ui->SliderRadius,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeRadius(int)));
+    connect(ui->SliderRX,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeRadiusX(int)));
+    connect(ui->SliderRY,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeRadiusY(int)));
+    connect(ui->SliderRZ,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(changeRadiusZ(int)));
+    connect(ui->radioButtonXY,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(changePXY()));
+    connect(ui->radioButtonYZ,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(changePYZ()));
+    connect(ui->radioButtonZX,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(changePZX()));
+    connect(ui->pushButtonQuit,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(Sair()));
+
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::PlanoXY()
+{
+
+}
+
+void MainWindow::PlanoYZ()
+{
+
+}
+
+void MainWindow::PlanoZX()
+{
+
+}
+
+void MainWindow::PutVoxel()
+{
+
+}
+
+void MainWindow::CutVoxel()
+{
+
+}
+
+void MainWindow::PutBox()
+{
+
+}
+
+void MainWindow::CutBox()
+{
+
+}
+
+void MainWindow::PutSphere()
+{
+
+}
+
+void MainWindow::CutSphere()
+{
+
+}
+
+void MainWindow::PutEllipsoid()
+{
+
+}
+
+void MainWindow::CutEllipsoid()
+{
+
+}
+
+void MainWindow::SelecionarPlano()
+{
+
+}
+
+void MainWindow::AbrirMesh()
+{
+    QProcess *mesh = new QProcess(this);
+    QString meshDir = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/MeshLab";
+    QString offDir = "";
+    QStringList arg;
+    arg << offDir;
+    mesh->start(meshDir,arg);
+    mesh->waitForFinished();
+}
+
+void MainWindow::Sair()
+{
+    exit(0);
+}
+

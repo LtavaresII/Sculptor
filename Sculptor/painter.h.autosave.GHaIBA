@@ -1,0 +1,259 @@
+#ifndef PAINTER_H
+#define PAINTER_H
+#include <iostream>
+#include <QWidget>
+#include <QAction>
+#include <QMouseEvent>
+#include <QColor>
+#include "vector"
+#include "sculptor.h"
+/**
+ * @brief A Classe Pintor
+ */
+class Painter:public QWidget
+{
+    Q_OBJECT
+public:
+    /**
+     * @brief Cria o Canvas
+     * @param parent
+     */
+    explicit Painter(QWidget *parent = nullptr);
+    /**
+     * @brief Mostra o Canvas
+     * @param event
+     */
+    void paintEvent(QPaintEvent *event);
+    /**
+     * @brief Detecta se o botão do mouse está precionado
+     * @param event
+     */
+    void mousePressEvent(QMouseEvent *event);
+    /**
+     * @brief Detecta se o botão do mouse foi solto
+     * @param event
+     */
+    void mouseReleaseEvent(QMouseEvent *event);
+    /**
+     * @brief Forma que será usada para desenhar no Canvas
+     * @param sh
+     */
+    void shape(int sh);
+    /**
+     * @brief s (Matriz Sculptor)
+     */
+    Sculptor *s;
+    /**
+     * @brief sh (Numeração da Forma)
+     */
+    int sh = 1;
+    /**
+     * @brief dim (Dimensão)
+     */
+    int dim;
+    /**
+     * @brief pl (Plano)
+     */
+    int pl;
+    /**
+     * @brief nx (valor da matriz em x)
+     */
+    int nx;
+    /**
+     * @brief ny (valor da matriz em y)
+     */
+    int ny;
+    /**
+     * @brief nz (valor da matriz em z)
+     */
+    int nz;
+    /**
+     * @brief r (Vermelho)
+     */
+    int r;
+    /**
+     * @brief g (Verde)
+     */
+    int g;
+    /**
+     * @brief b (Azul)
+     */
+    int b;
+    /**
+     * @brief a (Grau de Transparencia)
+     */
+    int a;
+    /**
+     * @brief rad (Raio da Esfera)
+     */
+    int rad;
+    /**
+     * @brief rx (Raio x da Elipse)
+     */
+    int rx;
+    /**
+     * @brief ry (Raio y da Elipse)
+     */
+    int ry;
+    /**
+     * @brief rz (Raio z da Elipse)
+     */
+    int rz;
+    /**
+     * @brief x
+     */
+    int x;
+    /**
+     * @brief y
+     */
+    int y;
+    /**
+     * @brief z
+     */
+    int z;
+    /**
+     * @brief h (Guarda a dimensão da Altura)
+     */
+    int h;
+    /**
+     * @brief w (Guarda a dimensão da Largura)
+     */
+    int w;
+private:
+    /**
+     * @brief p
+     */
+    vector<vector<Voxel>> p;
+    /**
+     * @brief lineColor
+     */
+    QColor lineColor;
+    /**
+     * @brief cor
+     */
+    int cor;
+    /**
+     * @brief actionMudaCor
+     */
+    QAction *actionMudaCor;
+    /**
+     * @brief cube
+     */
+    int cube;
+    /**
+     * @brief square
+     */
+    int square;
+    /**
+     * @brief px
+     */
+    int px;
+    /**
+     * @brief py
+     */
+    int py;
+    /**
+     * @brief pz
+     */
+    int pz;
+    /**
+     * @brief press
+     */
+    bool press;
+    /**
+     * @brief mx
+     */
+    int mx;
+    /**
+     * @brief my
+     */
+    int my;
+signals:
+    /**
+     * @brief MoveX
+     */
+    void MoveX(int);
+    /**
+     * @brief MoveY
+     */
+    void MoveY(int);
+    /**
+     * @brief ClickX
+     */
+    void ClickX(int);
+    /**
+     * @brief ClickY
+     */
+    void ClickY(int);
+    /**
+     * @brief PlanoSelecionado
+     */
+    void PlanoSelecionado(int);
+public slots:
+    /**
+     * @brief MudarDimX
+     * @param dx
+     */
+    void MudarDimX(int dx);
+    /**
+     * @brief MudarDimY
+     * @param dy
+     */
+    void MudarDimY(int dy);
+    /**
+     * @brief MudarDimZ
+     * @param dz
+     */
+    void MudarDimZ(int dz);
+    /**
+     * @brief MudarRad
+     * @param radius
+     */
+    void MudarRad(int radius);
+    /**
+     * @brief MudarRX
+     * @param rx
+     */
+    void MudarRX(int rx);
+    /**
+     * @brief MudarRY
+     * @param ry
+     */
+    void MudarRY(int ry);
+    /**
+     * @brief MudarRZ
+     * @param rz
+     */
+    void MudarRZ(int rz);
+    /**
+     * @brief MudarRed
+     * @param r
+     */
+    void MudarRed(int r);
+    /**
+     * @brief MudarGreen
+     * @param g
+     */
+    void MudarGreen(int g);
+    /**
+     * @brief MudarBlue
+     * @param b
+     */
+    void MudarBlue(int b);
+    /**
+     * @brief MudarAlpha
+     * @param a
+     */
+    void MudarAlpha(int a);
+    /**
+     * @brief MudarPlano
+     * @param pln
+     */
+    void MudarPlano(int pln);
+    /**
+     * @brief OFF
+     */
+    void OFF();
+};
+
+#endif // PAINTER_H

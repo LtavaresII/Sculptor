@@ -1,0 +1,251 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include "sculptordialog.h"
+#include "sculptor.h"
+#include "plotter.h"
+#include "QMessageBox"
+#include "QProcess"
+
+MainWindow::MainWindow(QWidget *parent):
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    ui->SliderRed->setMinimum(1);
+    ui->SliderRed->setMaximum(255);
+    ui->SliderGreen->setMinimum(1);
+    ui->SliderGreen->setMaximum(255);
+    ui->SliderBlue->setMinimum(1);
+    ui->SliderBlue->setMaximum(255);
+    ui->SliderAlpha->setMaximum(255);
+    ui->SliderX->setMaximum(ui->widget->nx-1);
+    ui->SliderY->setMaximum(ui->widget->ny-1);
+    ui->SliderZ->setMaximum(ui->widget->nz-1);
+    ui->SliderRadius->setMaximum(ui->widget->nx/2 -1);
+    ui->SliderRX->setMaximum(ui->widget->nx/2 -1);
+    ui->SliderRY->setMaximum(ui->widget->ny/2 -1);
+    ui->SliderRZ->setMaximum(ui->widget->nz/2 -1);
+    ui->SliderDimensao->setMaximum(ui->widget->nz -1);
+
+    connect(ui->SliderDimensao,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(MudarPlano(int)));
+
+    connect(ui->PutVoxel,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(PutVoxel()));
+    connect(ui->CutVoxel,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(CutVoxel()));
+    connect(ui->PutBox,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(PutBox()));
+    connect(ui->CutBox,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(CutBox()));
+    connect(ui->PutSphere,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(PutSphere()));
+    connect(ui->CutSphere,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(CutSphere()));
+    connect(ui->PutEllipsoid,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(PutEllipsoid()));
+    connect(ui->CutEllipsoid,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(CutEllipsoid()));
+
+    connect(ui->SliderRed,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(MudarRed(int)));
+    connect(ui->SliderGreen,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(MudarGreen(int)));
+    connect(ui->SliderBlue,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(MudarBlue(int)));
+    connect(ui->SliderAlpha,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(MudarAlpha(int)));
+
+    connect(ui->SliderX,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(MudarDimx(int)));
+    connect(ui->SliderY,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(MudarDimy(int)));
+    connect(ui->SliderZ,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(MudarDimz(int)));
+    connect(ui->SliderRadius,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(MudarRad(int)));
+    connect(ui->SliderRX,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(MudarRx(int)));
+    connect(ui->SliderRY,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(MudarRy(int)));
+    connect(ui->SliderRZ,
+            SIGNAL(valueChanged(int)),
+            ui->widget,
+            SLOT(MudarRz(int)));
+
+    connect(ui->radioButtonXY,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(PlanoXY()));
+    connect(ui->radioButtonYZ,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(PlanoYZ()));
+    connect(ui->radioButtonZX,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(PlanoZX()));
+
+    connect(ui->actionNew_Canvas,
+                SIGNAL(triggered(bool)),
+                this,
+                SLOT(SelecionarPlano()));
+    connect(ui->actionExport_off_File,
+                SIGNAL(triggered(bool)),
+                ui->widget,
+                SLOT(OFF()));
+    connect(ui->pushButtonQuit,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(Sair()));
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::PlanoXY()
+{
+    ui->widget->plano = XY;
+    emit ui->widget->PlanoEscolhido(XY);
+    ui->widget->dim = ui->widget->nz/2;
+    ui->SliderDimensao->setMaximum(ui->widget->nz -1);
+    ui->widget->repaint();
+}
+
+void MainWindow::PlanoYZ()
+{
+    ui->widget->plano = YZ;
+    emit ui->widget->PlanoEscolhido(YZ);
+    ui->widget->dim = ui->widget->nx/2;
+    ui->SliderDimensao->setMaximum(ui->widget->nx -1);
+    ui->widget->repaint();
+}
+
+void MainWindow::PlanoZX()
+{
+    ui->widget->plano = ZX;
+    emit ui->widget->PlanoEscolhido(ZX);
+    ui->widget->dim = ui->widget->ny/2;
+    ui->SliderDimensao->setMaximum(ui->widget->ny -1);
+    ui->widget->repaint();
+}
+
+void MainWindow::PutVoxel()
+{
+    ui->widget->forma = 1;
+}
+
+void MainWindow::CutVoxel()
+{
+    ui->widget->forma = 2;
+}
+
+void MainWindow::PutBox()
+{
+    ui->widget->forma = 3;
+}
+void MainWindow::CutBox()
+{
+    ui->widget->forma = 4;
+}
+
+void MainWindow::PutSphere()
+{
+    ui->widget->forma = 5;
+}
+
+void MainWindow::CutSphere()
+{
+    ui->widget->forma = 6;
+}
+
+void MainWindow::PutEllipsoid()
+{
+    ui->widget->forma = 7;
+}
+
+void MainWindow::CutEllipsoid()
+{
+    ui->widget->forma = 8;
+}
+
+void MainWindow::SelecionarPlano()
+{
+    QMessageBox box;
+    QString msg;
+    SculptorDialog dialog;
+
+    if(dialog.exec() == QDialog::Accepted){
+        msg = "X = <b>"+QString::number(dialog.getX())+
+        "</b> <br>"+
+        "Y = <b>"+QString::number(dialog.getY())+
+        "</b> <br>"+
+        "Z = <b>"+QString::number(dialog.getZ())+
+        "</b>";
+        box.setText(msg);
+        box.exec();
+     }
+     ui->widget->s->~Sculptor();
+     ui->widget->nx = dialog.getX();
+     ui->widget->ny = dialog.getY();
+     ui->widget->nz = dialog.getZ();
+     ui->widget->s = new Sculptor(ui->widget->nx,ui->widget->ny,ui->widget->nz);
+     ui->widget->repaint();
+}
+
+void MainWindow::AbrirMesh()
+{
+    QProcess *mesh = new QProcess(this);
+    QString meshDir = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/MeshLab";
+    QString offDir = "C:/Users/Luís Tavares/Documents\build-Sculptor-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/sculptor.off";
+    QStringList arg;
+    arg << offDir;
+    mesh->start(meshDir,arg);
+    mesh->waitForFinished();
+}
+
+void MainWindow::Sair()
+{
+    exit(0);
+}
+

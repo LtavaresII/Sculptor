@@ -1,0 +1,30 @@
+#include "plotter.h"
+#include "sculptor.h"
+#include <iostream>
+#include <QPainter>
+#include <QPen>
+#include <QBrush>
+#include <QMouseEvent>
+#include <QDebug>
+#include <QColor>
+#include "QMessageBox"
+
+Plotter::Plotter(QWidget *parent) : QWidget(parent){
+
+}
+
+void Plotter::paintEvent(QPaintEvent *event){
+    QPainter Painter(this);
+    QBrush Brush;
+    QPen Pen;
+
+    Brush.setColor(QColor(255,255,255));
+    Brush.setStyle(Qt::SolidPattern);
+    Painter.setBrush(Brush);
+
+    Pen.setColor(QColor(0,0,0));
+    Pen.setWidth(2);
+    Painter.setPen(Pen);
+
+    Painter.drawRect(0,0,width(),height());
+}
