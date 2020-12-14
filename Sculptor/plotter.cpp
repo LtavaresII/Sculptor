@@ -205,7 +205,7 @@ void Plotter::MudarPlano(int plano)
 
 void Plotter::OFF()
 {
-    s->writeOFF("C:/Users/Luís Tavares/Documents\build-Sculptor-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/sculptor.off");
+    s->writeOFF("Sculptor.off");
     QMessageBox box;
     QString msg;
     msg = "Arquivo OOF gerado com sucesso";

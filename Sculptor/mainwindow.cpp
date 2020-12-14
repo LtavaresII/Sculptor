@@ -237,7 +237,7 @@ void MainWindow::AbrirMesh()
 {
     QProcess *mesh = new QProcess(this);
     QString meshDir = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/MeshLab";
-    QString offDir = "C:/Users/Luís Tavares/Documents\build-Sculptor-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/sculptor.off";
+    QString offDir = "Sculptor.off";
     QStringList arg;
     arg << offDir;
     mesh->start(meshDir,arg);
