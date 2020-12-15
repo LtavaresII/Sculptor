@@ -7,6 +7,7 @@
 #include <QMouseEvent>
 #include <QDebug>
 #include <QColor>
+#include <QRect>
 #include "QMessageBox"
 
 Plotter::Plotter(QWidget *parent) : QWidget(parent){
@@ -15,7 +16,7 @@ Plotter::Plotter(QWidget *parent) : QWidget(parent){
     dim=0; plano=XY;
 
     x=0; y=0; z=0; rad=0; rx=0;ry=0;rz=0;
-    r = 1; g=1; b=1; a = 255;
+    r = 0; g = 0; b = 0; a = 255;
 
     forma=1;
 }
@@ -92,7 +93,7 @@ void Plotter::mousePressEvent(QMouseEvent *event)
                   cy=dim;
               }
           Plotter::Forma(forma);
-      }
+    }
 }
 
 void Plotter::mouseReleaseEvent(QMouseEvent *event)

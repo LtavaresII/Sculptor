@@ -20,18 +20,7 @@ private:
      * @brief m (matriz)
      */
     vector<vector<Voxel>> m;
-    /**
-     * @brief lineColor
-     */
-    QColor lineColor;
-    /**
-     * @brief cor
-     */
-    int cor;
-    /**
-     * @brief actionMudaCor
-     */
-    QAction *actionMudaCor;
+
     /**
      * @brief Cubo
      */
@@ -172,23 +161,23 @@ public:
     int largura;
 signals:
     /**
-     * @brief MoverX
+     * @brief Mover o no mouse X
      */
     void MoverX(int);
     /**
-     * @brief MoverY
+     * @brief Mover o no mouse Y
      */
     void MoverY(int);
     /**
-     * @brief ClickX
+     * @brief Identifica o Click no X
      */
     void ClickX(int);
     /**
-     * @brief ClickY
+     * @brief Identifica o Click no Y
      */
     void ClickY(int);
     /**
-     * @brief PlanoEscolhido
+     * @brief Plano Escolhido
      */
     void PlanoEscolhido(int);
 public slots:

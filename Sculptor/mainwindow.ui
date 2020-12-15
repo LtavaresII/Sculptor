@@ -441,7 +441,6 @@
     </property>
     <addaction name="actionNew_Canvas"/>
     <addaction name="actionExport_off_File"/>
-    <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuMeshLab">
     <property name="title">
@@ -580,12 +579,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>630</x>
-     <y>513</y>
+     <x>621</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
-     <x>639</x>
-     <y>596</y>
+     <x>649</x>
+     <y>592</y>
     </hint>
    </hints>
   </connection>
@@ -596,8 +595,8 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>740</x>
-     <y>470</y>
+     <x>721</x>
+     <y>515</y>
     </hint>
     <hint type="destinationlabel">
      <x>733</x>
@@ -612,12 +611,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>809</x>
-     <y>516</y>
+     <x>790</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
-     <x>807</x>
-     <y>597</y>
+     <x>831</x>
+     <y>592</y>
     </hint>
    </hints>
   </connection>
@@ -660,8 +659,8 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>831</x>
-     <y>305</y>
+     <x>830</x>
+     <y>318</y>
     </hint>
     <hint type="destinationlabel">
      <x>872</x>
@@ -676,8 +675,8 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>834</x>
-     <y>279</y>
+     <x>830</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>882</x>
@@ -708,8 +707,8 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>840</x>
-     <y>171</y>
+     <x>834</x>
+     <y>173</y>
     </hint>
     <hint type="destinationlabel">
      <x>878</x>
@@ -724,8 +723,8 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>841</x>
-     <y>139</y>
+     <x>834</x>
+     <y>145</y>
     </hint>
     <hint type="destinationlabel">
      <x>880</x>
@@ -746,6 +745,22 @@
     <hint type="destinationlabel">
      <x>887</x>
      <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SliderRed</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>810</x>
+     <y>102</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>879</x>
+     <y>104</y>
     </hint>
    </hints>
   </connection>
