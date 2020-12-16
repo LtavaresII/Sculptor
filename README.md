@@ -19,6 +19,8 @@ Essas funções podem ser acessadas pela barra de ferramentas acima da matriz ce
 As Estruturas podem ter suas cores e o grau de transparencia definidas pelas barras de "Selecione a Cor" e definir o plano no qual está desenhando nos botões "Selecione o plano". Podemos também modificar a profundidade do plano, se movendo entre as camadas do Canvas na barra "Selecione a Profundidade".
 
 Caso queria criar um novo Canvas, basta abrir a aba "Arquivo" e em "Novo Canvas", onde abrirá uma janela para configurar as dimensões do novo Canvas.
-Para salvar os desenhos de suas estruturas, basta ir novamente em "Arquivo" e em "Exportar Arquivo .off" e irar criar um arquivo .off com suas estruturas, mas caso queira abrir o arquivo, clique em "MeshLab" e irá abrir o Meshlab (caso o tenha instalado).
+Para salvar os desenhos de suas estruturas, basta ir novamente em "Arquivo" e em "Exportar Arquivo .off" e irar criar um arquivo .off com suas estruturas, mas caso queira abrir o arquivo e visualizar sua estrutura, clique em "MeshLab" e irá abrir o Meshlab (caso o tenha instalado) no Windows.
+
+Os programas utilizados para visualizar usas estruturas são MeshLab (Windows) e GeomView (Linux).
 
 Autor: Luís Fernando Tavares
