@@ -20,25 +20,20 @@ private:
      * @brief m (matriz)
      */
     vector<vector<Voxel>> m;
-
-    /**
-     * @brief Cubo
-     */
-    int Cubo;
     /**
      * @brief Quadrado
      */
     int Quadrado;
     /**
-     * @brief cx (Posição do X)
+     * @brief cx (Posição do X no canvas)
      */
     int cx;
     /**
-     * @brief cy (Posição do Y)
+     * @brief cy (Posição do Y no canvas)
      */
     int cy;
     /**
-     * @brief cz (Posição do Z)
+     * @brief cz (Posição do Z no canvas)
      */
     int cz;
     /**
