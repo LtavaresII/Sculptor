@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['off_107',['OFF',['../class_plotter.html#a8e87c43bb620ec1221516249d4bd23b8',1,'Plotter']]]
+  ['novocanvas_107',['NovoCanvas',['../class_main_window.html#a2a61d1526fec4e4c7bbe2cc2b1707bd0',1,'MainWindow']]]
 ];
