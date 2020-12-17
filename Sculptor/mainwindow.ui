@@ -451,11 +451,6 @@
    <addaction name="menuFile"/>
    <addaction name="menuMeshLab"/>
   </widget>
-  <action name="actionQuit">
-   <property name="text">
-    <string>Sair</string>
-   </property>
-  </action>
   <action name="actionNew_Canvas">
    <property name="text">
     <string>Novo Canvas</string>

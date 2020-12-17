@@ -76,9 +76,9 @@ public slots:
      */
     void CutEllipsoid();
     /**
-     * @brief Atribui as dimensões do novo Canvas
+     * @brief Define as dimensões do novo
      */
-    void NovoCanvas();
+    void SelecionarPlano();
     /**
      * @brief Abre o MeshLab
      */

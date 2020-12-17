@@ -63,7 +63,7 @@ MainWindow::MainWindow(QWidget *parent):
     // Criar Canvas, Exportar, Abrir MeshLab e Sair
     connect(ui->actionNew_Canvas,SIGNAL(triggered(bool)),this,SLOT(NovoCanvas()));
     connect(ui->actionExport_off_File,SIGNAL(triggered(bool)),ui->widget,SLOT(OFF()));
-    connect(ui->actionAbrir_MeshLab,SIGNAL(triggered(bool)),this,SLOT(AbrirMesh()));
+    connect(ui->MeshLab,SIGNAL(triggered(bool)),this,SLOT(AbrirMesh()));
     connect(ui->pushButtonQuit,SIGNAL(clicked(bool)),this,SLOT(Sair()));
 }
 
@@ -166,7 +166,7 @@ void MainWindow::AbrirMesh()
 {
     QProcess *mesh = new QProcess(this);
     QString meshDir = "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/MeshLab";
-    QString offDir = "C:/Users/Luís Tavares/Documents/build-Sculptor-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/Sculptor.off";
+    QString offDir = "C:\Users\Luís Tavares\Documents\build-Sculptor-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/Sculptor.off";
     QStringList arg;
     arg << offDir;
     mesh->start(meshDir,arg);
