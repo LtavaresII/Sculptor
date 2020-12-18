@@ -140,20 +140,11 @@ void MainWindow::CutEllipsoid()
 
 void MainWindow::NovoCanvas()
 {
-    QMessageBox box;
-    QString msg;
     SculptorDialog dialog;
 
     if(dialog.exec() == QDialog::Accepted){
-        msg = "X = <b>"+QString::number(dialog.getX())+
-        "</b> <br>"+
-        "Y = <b>"+QString::number(dialog.getY())+
-        "</b> <br>"+
-        "Z = <b>"+QString::number(dialog.getZ())+
-        "</b>";
-        box.setText(msg);
-        box.exec();
-     }
+
+    }
      ui->widget->s->~Sculptor();
      ui->widget->nx = dialog.getX();
      ui->widget->ny = dialog.getY();
